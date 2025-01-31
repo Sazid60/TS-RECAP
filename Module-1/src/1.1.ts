@@ -45,4 +45,37 @@
   // - Optional Parameter
   // - Default Parameter
   // - Arrow Function with Types
+
+  //    implicit data types
+  let firstName = "Sazid";
+
+  //   explicit data types
+  let lastName: String = "Sazid";
+
+  //    Primitive Dta Types
+  let age: number = 25;
+  let isAdult: boolean = true;
+  let x: null = null;
+  let y: undefined = undefined;
+  let z: symbol = Symbol("sazid");
+
+  //   any type
+  let d: any = 10;
+
+  //   Non-Primitive
+  let friends: string[] = ["sazid", "Shakil"];
+  let eligibleRoleList: number[] = [1, 2, 3, 4, 5, 6];
+
+  //   tuples
+
+  let coordinates: [number, number] = [1, 14];
+
+  let info: [number, string] = [12, "sazid"];
+  let info1: [number, string, boolean] = [12, "sazid", true];
+
+  //  though we can change the tuple in different way
+
+  const originalTuple: [number, string] = [1, "Hello"];
+
+  const newTuple = [...originalTuple, true];
 }
