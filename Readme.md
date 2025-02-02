@@ -9,6 +9,20 @@
 - Change the Root Dir and Out Dir
 - After This do not have run "tsc Module-1/src/index.ts" like this we just can write "tsc"
 
+### To run the ts file directly
+
+- install
+
+```ts
+npm i -g ts-node-dev --save-dev
+```
+
+- then run
+
+```ts
+ts-node-dev --respawn --transpile-only .\Module-1\src\1.7.ts
+```
+
 ## Basic Types Of Typescript Module-1-0
 
 #### Js Types
@@ -497,4 +511,91 @@ const fullstackDeveloper: FullstackDeveloper = {
   designation1: "Frontend Developer",
   designation2: "Backend Developer",
 };
+```
+
+## Ternary Operator/ Optional Chaining / Nullish Coalescing
+
+### Ternary Operator
+
+```ts
+// normal if else
+
+const age: number = 18;
+if (age >= 18) {
+  console.log("You are an adult");
+} else {
+  console.log("You are a kid");
+}
+
+// using ternary operator
+const isAdult = age >= 18 ? "adult" : "kid";
+
+console.log(`You are a ${isAdult}-used Ternary`);
+```
+
+### Nullish Coalescing Operator
+
+- If the situation is like we have to take decisions based on the null or undefined value, then we can use the nullish coalescing operator.
+
+```ts
+const isAuthenticated = true;
+const result1 = isAuthenticated ?? "Guest";
+// The Nullish Coalescing Operator (??) checks if isAuthenticated is null or undefined.
+const result2 = isAuthenticated ? isAuthenticated : "Guest";
+
+console.log(result1, result2);
+```
+
+## Nullable Types
+
+- This means setting Null Value
+
+```ts
+// Nullable Types
+
+const searchName = (value: string | null) => {
+  if (value) {
+    console.log("Searching");
+  } else {
+    console.log("there is nothing to search");
+  }
+};
+searchName(null);
+```
+
+## Unknown Type
+
+- This Means Setting Unknown Value so that any type can come
+
+```ts
+// unknown Type
+
+const getSpeedInMeterPerSecond = (value: unknown) => {
+  if (typeof value === "number") {
+    const convertedSpeed = (value * 1000) / 3600;
+    console.log(`The Speed is ${convertedSpeed} ms^-1 `);
+  } else if (typeof value === "string") {
+    const [result, unit] = value.split(" ");
+    const convertedSpeed = (parseFloat(result) * 1000) / 3600;
+    console.log(`The Speed is ${convertedSpeed} ms^-1 `);
+    console.log(result);
+  } else {
+    console.log("Wrong Input");
+  }
+};
+
+getSpeedInMeterPerSecond(1000);
+getSpeedInMeterPerSecond(`1000 kmh^-1`);
+```
+
+## Never Type
+
+- The never type in TypeScript represents a value that never occurs. It is used for functions that never return
+
+```ts
+// never type
+const throwError = (msg: string): never => {
+  throw new Error(msg);
+};
+throwError("Bap re bap Error hOi gelo");
 ```
