@@ -61,7 +61,7 @@
 - Default Parameter
 - Arrow Function with Types
 
-## Data Types Deep Understanding-1-1
+## Data Types Deep Understanding
 
 ##### Common Examples
 
@@ -194,4 +194,64 @@ const array: number[] = [1, 2, 3, 4, 5];
 const newArray: number[] = array.map(
   (element: number): number => element * element
 );
+```
+
+##### Object Optional and Literal Types
+
+- Object With js
+
+```ts
+const user = {
+  firstName: "Sazid",
+  lastName: "Shahnawaz",
+  middleName: "Aura",
+};
+```
+
+- Object With Ts
+
+```ts
+const user: {
+  firstName: string;
+  lastName: string;
+  middleName: string;
+} = {
+  firstName: "Sazid",
+  lastName: "Shahnawaz",
+  middleName: "Aura",
+};
+```
+
+#### literal types
+
+- It is Like Whatever we write while defining types it becomes a type
+
+```ts
+const user: {
+  company: "PH"; // if we do not use PH it will show error.
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  isMarried: boolean;
+} = {
+  company: "PH",
+  firstName: "Shahnawaz",
+  lastName: "Sazid",
+  isMarried: true,
+};
+
+// can do this using readOnly as well
+
+const user2: {
+  readOnly company :string:
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  isMarried: boolean;
+} = {
+  company: "PH",
+  firstName: "Shahnawaz",
+  lastName: "Sazid",
+  isMarried: true,
+};
 ```
