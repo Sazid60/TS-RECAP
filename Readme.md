@@ -657,6 +657,7 @@ try {
 - If any Property Needs to be extended we should use interface
 - Types are better to use for array
 - Types are better to use for functions
+- Interface usage are clean for objects
 
 #### So For all Primitives we will use type alias and for non primitive(object) we will use both type and interface.
 
@@ -704,4 +705,78 @@ interface Add2 {
 }
 
 const add1: Add1 = (num1, num2) => num1 + num2;
+```
+
+## Generics
+
+- Generics in TypeScript allow you to create reusable components by writing flexible and type-safe code that works with different data types without losing type safety.
+
+- Instead of defining a function, class, or interface that only works with a single type, generics allow you to use type variables that act as placeholders for specific types.
+
+```ts
+type GenericArray<T> = Array<T>;
+
+const rollNumbers: GenericArray<number> = [1, 2, 3, 4];
+const mentors: GenericArray<string> = ["a", "z", "a", "d"];
+const boolArray: GenericArray<boolean> = [true, false, true];
+// previously it was like
+// const rollNumbers1: number[] = [1, 2, 3, 4]
+```
+
+### Generic Array Of Object
+
+```ts
+type GenericArray<T> = Array<T>;
+const user: GenericArray<{ name: string; age: number }> = [
+  {
+    name: "sazid",
+    age: 100,
+  },
+  {
+    name: "sazid",
+    age: 100,
+  },
+  {
+    name: "sazid",
+    age: 100,
+  },
+];
+```
+
+- We Can Do This using Interface as well
+
+```ts
+type GenericArray<T> = Array<T>;
+
+interface User {
+  name: string;
+  age: number;
+}
+const user: GenericArray<User> = [
+  {
+    name: "sazid",
+    age: 100,
+  },
+  {
+    name: "sazid",
+    age: 100,
+  },
+  {
+    name: "sazid",
+    age: 100,
+  },
+];
+```
+
+- In case Of Tuple
+
+```ts
+type GenericTuple<x, y> = [x, y];
+
+const manush: GenericTuple<string, string> = ["x-men", "x-women"];
+
+const userWithId: GenericTuple<number, { name: string; email: string }> = [
+  123,
+  { name: "saziid", email: "s@gmail.com" },
+];
 ```
