@@ -649,3 +649,59 @@ try {
   console.log((error as CustomError).message); //eta korle auto suggestion dibe message ta
 }
 ```
+
+## Interface and Types in Array and Objects
+
+- We can use type alias for primitive data as well.
+- But Using Interface we can not define primitive type.
+- If any Property Needs to be extended we should use interface
+- Types are better to use for array
+- Types are better to use for functions
+
+#### So For all Primitives we will use type alias and for non primitive(object) we will use both type and interface.
+
+```ts
+type User1 = {
+  name: string;
+  age: number;
+};
+
+interface user2 {
+  name: string;
+  age: number;
+}
+
+type User3 = User1 & { role: string };
+
+interface User4 extends user2 {
+  role: string;
+}
+```
+
+- js --> object , array --> object, function-->object
+
+- Types are better to use for array
+
+```ts
+type Roll1 = number[];
+
+// this is the reason why
+interface Roll2 {
+  [index: number]: number;
+}
+
+const rollNumber1: Roll1 = [1, 2, 3];
+
+const rollNumber2: Roll2 = [1, 2, 3];
+
+// interface in function
+
+type Add1 = (num1: number, num2: number) => number;
+// types are better to use for functions
+
+interface Add2 {
+  (num1: number, num2: number): number;
+}
+
+const add1: Add1 = (num1, num2) => num1 + num2;
+```
