@@ -780,3 +780,7 @@ const userWithId: GenericTuple<number, { name: string; email: string }> = [
   { name: "saziid", email: "s@gmail.com" },
 ];
 ```
+
+## Generic Interfaces
+
+- A Generic Interface in TypeScript allows you to create reusable and flexible interfaces that can work with multiple data types dynamically, ensuring type safety and reducing code duplication
